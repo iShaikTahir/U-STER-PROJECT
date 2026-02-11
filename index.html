@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+        <link rel="style.css" href="style.css">
+         <title>U-STER</title> 
+ </head>
+ <body>
+    <div class="dashboard">
+        <header>
+            <h1>U-STER UNIFIED SYSTEM</h1>
+            <p1>Region: Telangana & Saudi Arabia</p1>
+        </header>
+        <div id="status-box" class="status-normal">
+            <h2 id="status-text">TRAFFIC FLOW:NORMAL</h2>
+            <P id="location-text">Monitering All secter..</P>
+        </div>
+        <button onclick="triggerEmergency()">TRIGGER EMERGENCY SIGNAL</button>
+    </div>
+    <script>
+        function triggerEmergency(){
+            document.getElementById('status-box').className='status-emergency';
+            document.getElementyById('status-text').innerText='TRAFFIC FLOW:EMERGENCY DETECTED';
+            document.getElementById('location-text').innerText ='Clearing path::Gachibowli to Riyadh HQ';
+            alert("java Logic: Signal Sent to Traffic Controller!");
+        }
+    </script>
+       
+    </body>
+</html>
