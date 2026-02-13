@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U-STER | Unified Emergency Response</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { background-color: #0b0e14; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .header-uae-ts { background: linear-gradient(90deg, #006C35 0%, #FF9933 100%); padding: 15px; border-bottom: 4px solid #fff; }
+        .emergency-card { background: #161b22; border-left: 5px solid #da3633; margin-bottom: 20px; transition: 0.3s; }
+        .emergency-card:hover { transform: scale(1.02); }
+        .status-badge { border-radius: 20px; padding: 5px 15px; font-size: 0.8rem; }
+        .log-box { background: #010409; height: 200px; overflow-y: scroll; border: 1px solid #30363d; padding: 10px; font-family: 'Courier New', Courier, monospace; color: #39ff14; }
+        .btn-emergency { background-color: #da3633; border: none; font-weight: bold; padding: 15px 30px; border-radius: 50px; box-shadow: 0 0 15px #da3633; }
+        .btn-emergency:hover { background-color: #bd2c2a; color: white; }
+    </style>
+</head>
+<body>
+
+<header class="header-uae-ts text-white text-center">
+    <h2><i class="fa-solid fa-tower-broadcast"></i> U-STER UNIFIED COMMAND</h2>
+    <p>Saudi Arabia (Riyadh) ↔ Telangana (Hyderabad)</p>
+</header>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card emergency-card p-3">
+                <div class="d-flex justify-content-between">
+                    <h5><i class="fa-solid fa-mosque"></i> Riyadh Sector</h5>
+                    <span class="status-badge bg-success text-white">SYSTEM ONLINE</span>
+                </div>
+                <hr>
+                <p><i class="fa-solid fa-traffic-light text-success"></i> Traffic Flow: 85% Smooth</p>
+                <p><i class="fa-solid fa-car-side"></i> Active Sensors: 1,240</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card emergency-card p-3" style="border-left-color: #FF9933;">
+                <div class="d-flex justify-content-between">
+                    <h5><i class="fa-solid fa-landmark"></i> Hyderabad Sector</h5>
+                    <span class="status-badge bg-warning text-dark">HEAVY TRAFFIC</span>
+                </div>
+                <hr>
+                <p><i class="fa-solid fa-traffic-light text-danger"></i> Traffic Flow: 40% (Congested)</p>
+                <p><i class="fa-solid fa-car-side"></i> Active Sensors: 890</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <h5><i class="fa-solid fa-list-ul"></i> Unified Live Logs (Java Backend Connected)</h5>
+            <div class="log-box" id="logBox">
+                <div>[18:14:42] Initializing Unified Data Link...</div>
+                <div>[18:14:45] Riyadh Smart Grid Connected.</div>
+                <div>[18:14:50] Hyderabad ISTMS Hub Synchronized.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <button class="btn btn-emergency text-white" onclick="triggerEmergency()">
+            <i class="fa-solid fa-truck-medical"></i> TRIGGER EMERGENCY SIGNAL
+        </button>
+    </div>
+</div>
+
+<script>
+    function triggerEmergency() {
+        const logBox = document.getElementById('logBox');
+        const time = new Date().toLocaleTimeString();
+        
+        // Simulating Java Logic Return
+        const newLog = document.createElement('div');
+        newLog.style.color = "#ff4b2b";
+        newLog.innerHTML = `[${time}] ALERT: Emergency Vehicle Detected (ID: TS-09-1122). Clearing Gachibowli Path...`;
+        logBox.appendChild(newLog);
+        
+        // Auto-scroll to bottom
+        logBox.scrollTop = logBox.scrollHeight;
+        
+        alert("Java Logic Received: Signal Overridden to GREEN for Emergency Path.");
+    }
+</script>
+
+</body>
+</html>
